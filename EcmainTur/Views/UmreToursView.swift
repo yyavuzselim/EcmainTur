@@ -10,7 +10,7 @@ struct UmreToursView: View {
                 ZStack {
                     Rectangle()
                         .fill(LinearGradient(
-                            gradient: Gradient(colors: [Color.blue.opacity(0.8), Color.blue]),
+                            gradient: Gradient(colors: [Color(hex: "b28f48").opacity(0.8), Color(hex: "b28f48")]),
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
                         ))
@@ -70,7 +70,7 @@ struct TourCard: View {
                         .foregroundColor(.white)
                         .padding(.horizontal, 12)
                         .padding(.vertical, 6)
-                        .background(Color.blue.opacity(0.9))
+                        .background(Color(hex: "b28f48").opacity(0.9))
                         .cornerRadius(6)
                     
                     Text(tour.price)
@@ -99,7 +99,7 @@ struct TourCard: View {
                     Label(tour.hotelType, systemImage: "star.fill")
                 }
                 .font(.caption)
-                .foregroundColor(.blue)
+                .foregroundColor(Color(hex: "b28f48"))
             }
             .padding(.horizontal, 12)
             .padding(.bottom, 15)
@@ -144,7 +144,7 @@ struct UmreTourDetailView: View {
                         PriceTag(price: tour.price)
                         Spacer()
                         Label(tour.duration, systemImage: "clock.fill")
-                            .foregroundColor(.blue)
+                            .foregroundColor(Color(hex: "b28f48"))
                     }
                     
                     // Description
@@ -163,7 +163,7 @@ struct UmreTourDetailView: View {
                     VStack(alignment: .leading, spacing: 12) {
                         ForEach(tour.hotelFeatures, id: \.self) { feature in
                             Label(feature, systemImage: "building.2.fill")
-                                .foregroundColor(.gray)
+                                .foregroundColor(Color(hex: "b28f48"))
                         }
                     }
                     
@@ -175,7 +175,7 @@ struct UmreTourDetailView: View {
                     VStack(alignment: .leading, spacing: 12) {
                         ForEach(tour.features, id: \.self) { feature in
                             Label(feature, systemImage: "checkmark.circle.fill")
-                                .foregroundColor(.gray)
+                                .foregroundColor(Color(hex: "b28f48"))
                         }
                     }
                     
@@ -193,7 +193,7 @@ struct UmreTourDetailView: View {
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Color.green)
+                            .background(Color(hex: "b28f48"))
                             .cornerRadius(15)
                         }
                         
@@ -209,7 +209,7 @@ struct UmreTourDetailView: View {
                             .padding()
                             .background(
                                 LinearGradient(
-                                    gradient: Gradient(colors: [Color.blue.opacity(0.8), Color.blue]),
+                                    gradient: Gradient(colors: [Color(hex: "b28f48").opacity(0.8), Color(hex: "b28f48")]),
                                     startPoint: .leading,
                                     endPoint: .trailing
                                 )
@@ -238,19 +238,11 @@ struct PriceTag: View {
             .padding(.vertical, 10)
             .background(
                 LinearGradient(
-                    gradient: Gradient(colors: [Color.blue.opacity(0.8), Color.blue]),
+                    gradient: Gradient(colors: [Color(hex: "b28f48").opacity(0.8), Color(hex: "b28f48")]),
                     startPoint: .leading,
                     endPoint: .trailing
                 )
             )
             .cornerRadius(10)
-    }
-}
-
-struct UmreToursView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            UmreToursView()
-        }
     }
 }

@@ -15,7 +15,7 @@ struct HotelsView: View {
     var body: some View {
         ScrollView {
             VStack(spacing: 0) {
-                // Başlık
+                // Başlık (renk değiştirildi)
                 ZStack {
                     Rectangle()
                         .fill(LinearGradient(
@@ -45,6 +45,7 @@ struct HotelsView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
+                .accentColor(Color(hex: "b28f48")) // Accent rengi değiştirildi
                 
                 // Oteller
                 VStack(spacing: 20) {
@@ -71,7 +72,6 @@ struct HotelCard: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 15) {
-            // Hotel Image
             ZStack(alignment: .bottomLeading) {
                 Image(hotel.images[0])
                     .resizable()
@@ -80,7 +80,6 @@ struct HotelCard: View {
                     .clipped()
                     .cornerRadius(15)
                 
-                // Location and Stars
                 VStack(alignment: .leading, spacing: 8) {
                     Text(hotel.location)
                         .font(.caption)
@@ -94,7 +93,7 @@ struct HotelCard: View {
                     HStack {
                         ForEach(0..<hotel.stars, id: \.self) { _ in
                             Image(systemName: "star.fill")
-                                .foregroundColor(.yellow)
+                                .foregroundColor(Color(hex: "b28f48")) // Yıldız rengi değiştirildi
                         }
                     }
                     .padding(.horizontal, 12)
@@ -114,12 +113,11 @@ struct HotelCard: View {
                     .font(.subheadline)
                     .foregroundColor(.gray)
                 
-                // Features
                 HStack(spacing: 15) {
                     ForEach(hotel.features.prefix(3), id: \.self) { feature in
                         Label(feature, systemImage: "checkmark.circle.fill")
                             .font(.caption)
-                            .foregroundColor(.blue)
+                            .foregroundColor(Color(hex: "b28f48")) // Özellik rengi değiştirildi
                     }
                 }
             }
@@ -138,7 +136,6 @@ struct HotelDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 20) {
-                // Image Carousel
                 TabView {
                     ForEach(hotel.images, id: \.self) { imageName in
                         Image(imageName)
@@ -150,7 +147,6 @@ struct HotelDetailView: View {
                 .tabViewStyle(PageTabViewStyle())
                 
                 VStack(alignment: .leading, spacing: 20) {
-                    // Title and Location
                     VStack(alignment: .leading, spacing: 8) {
                         HStack {
                             Text(hotel.name)
@@ -172,7 +168,7 @@ struct HotelDetailView: View {
                         HStack {
                             ForEach(0..<hotel.stars, id: \.self) { _ in
                                 Image(systemName: "star.fill")
-                                    .foregroundColor(.yellow)
+                                    .foregroundColor(Color(hex: "b28f48")) // Yıldız rengi değiştirildi
                             }
                         }
                         
@@ -181,7 +177,6 @@ struct HotelDetailView: View {
                             .foregroundColor(.gray)
                     }
                     
-                    // Description
                     Text("Otel Hakkında")
                         .font(.title3)
                         .fontWeight(.bold)
@@ -189,7 +184,6 @@ struct HotelDetailView: View {
                     Text(hotel.description)
                         .foregroundColor(.gray)
                     
-                    // Features
                     Text("Otel Özellikleri")
                         .font(.title3)
                         .fontWeight(.bold)
@@ -205,7 +199,6 @@ struct HotelDetailView: View {
                         }
                     }
                     
-                    // Room Types
                     Text("Oda Tipleri")
                         .font(.title3)
                         .fontWeight(.bold)
@@ -223,22 +216,20 @@ struct HotelDetailView: View {
                                 ForEach(room.amenities, id: \.self) { amenity in
                                     Label(amenity, systemImage: "checkmark.circle.fill")
                                         .font(.caption)
-                                        .foregroundColor(.gray)
+                                        .foregroundColor(Color(hex: "b28f48")) // Özellik rengi değiştirildi
                                 }
                             }
                             
                             Text(room.price)
                                 .font(.headline)
-                                .foregroundColor(.blue)
+                                .foregroundColor(Color(hex: "b28f48")) // Fiyat rengi değiştirildi
                         }
                         .padding()
                         .background(Color.gray.opacity(0.1))
                         .cornerRadius(10)
                     }
                     
-                    // Contact Buttons
                     VStack(spacing: 12) {
-                        // WhatsApp Button
                         Link(destination: URL(string: "https://wa.me/00905322446645")!) {
                             HStack {
                                 Image("whatsapp")
@@ -250,11 +241,10 @@ struct HotelDetailView: View {
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Color.green)
+                            .background(Color(hex: "b28f48")) // WhatsApp butonu rengi değiştirildi
                             .cornerRadius(15)
                         }
                         
-                        // Call Button
                         Link(destination: URL(string: "tel:08503052160")!) {
                             HStack {
                                 Image(systemName: "phone.fill")
@@ -264,7 +254,7 @@ struct HotelDetailView: View {
                             .foregroundColor(.white)
                             .frame(maxWidth: .infinity)
                             .padding()
-                            .background(Color.blue)
+                            .background(Color(hex: "b28f48")) // Arama butonu rengi değiştirildi
                             .cornerRadius(15)
                         }
                     }
@@ -274,13 +264,5 @@ struct HotelDetailView: View {
             }
         }
         .ignoresSafeArea(.all, edges: .top)
-    }
-}
-
-struct HotelsView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            HotelsView()
-        }
     }
 }
